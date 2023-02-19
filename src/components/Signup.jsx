@@ -19,20 +19,16 @@ const Signup = () => {
         const password = passRef.current.value;
         const balance = depRef.current.value;
 
-        try {
-            const data ={name,email,password,balance};
-            console.log(data);
-            const res = await newUser(data);
-            if(res.authToken){
-                localStorage.setItem('authToken',res.authToken)
-                navigate('/user')
-            }
-        
-        } catch (error) {
-            console.log(error);
-            navigate('/error')
+        const data ={name,email,password,balance};
+        console.log(data);
+        const res = await newUser(data);
+        if(res.authToken){
+            localStorage.setItem('authToken',res.authToken)
+            navigate('/user')
         }
-
+        else{
+            navigate('/error',{state:{msg:res.response.data.msg}})
+        }
     }
     
     const st ={marginTop:'10px',color:'#000',marginBottom:'10px',width:{sm:'100%',md:'275px'},borderRadius:'5px'}
