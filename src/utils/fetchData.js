@@ -1,7 +1,7 @@
 import axios from 'axios';
 // const baseUrl = 'https://baybank-api.vercel.app'
 // const baseUrl = 'http://localhost:5000'
-const baseUrl = 'https://react-banking-app-backend-production.up.railway.app'
+const baseUrl = 'https://baybank-backend-production.up.railway.app/'
 
 
 // register
